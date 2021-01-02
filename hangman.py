@@ -11,18 +11,14 @@ def get_random_word():
 def play():
     word = get_random_word().upper()
     lives = 6
-    print(word)
     word_letters = set(word)
     alphabet = set(string.ascii_letters)
     used_letters = set()
-    print('length ', len(word_letters) )
     while len(word_letters)>0 and lives > 0:
-        print("You have used these letters: ", " ".join(used_letters))
-        
+        print("You have used these letters: ", " ".join(used_letters))   
         word_list= [letter if letter in used_letters else '_' for letter in word]
         print("current word: ", " ".join(word_list))
         user_letter = input("Guess a letter: ").upper()
-        print("".join(word_list), word)
         if user_letter in alphabet - used_letters:       
             used_letters.add(user_letter)
             if user_letter in word_letters:
@@ -40,7 +36,7 @@ def play():
     if lives == 0:
         print("sorry you have died, the word was ", word)
     else:
-        print('Yay! you guess the word ', word)
+        print('Yay! you guessed the word ', word)
             
             
 def display_hangman(tries):
